@@ -16,6 +16,15 @@
   </a>
 </p>
 
+Fork for custom extendTailwindMerge in withTailant function, example:
+```
+withTailant({...}, {
+  classGroups: {
+      'font-size': [ { text: [ validators.isLength ] } ]
+  }
+})
+```
+
 ## Features
 
 - Supports Tailwind v3.0 up to v3.3
