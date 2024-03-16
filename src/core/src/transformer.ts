@@ -5,6 +5,9 @@ import resolveConfig from 'tailwindcss/resolveConfig'
 
 import { isArray, isEmpty, isFunction, isObject, isRawFile, isTransformerFunction } from './utils/tools'
 import { Processor } from './lib'
+import { extendTailwindMerge } from "tailwind-merge"
+
+export { validators } from 'tailwind-merge'
 
 /**
  * Returns a function that applies a list of TransformerFns to a given input
@@ -67,13 +70,18 @@ const getExtensions = (files: ContentFile): string[] => {
   return result.filter((ext) => ext !== 'html')
 }
 
+export let extendTwMerge: ReturnType<typeof extendTailwindMerge> | undefined
+
 /**
  * Applies a tailant to the given configuration object, modifying it in place.
  *
  * @param {Config} input - the configuration object to process
+ * @param extendTwMergeConfig - config extendTailwindMerge
  * @return {Config} the processed configuration object
  */
-export function withTailant(input: Config) {
+export function withTailant(input: Config, extendTwMergeConfig?: Parameters<typeof extendTailwindMerge>[0]) {
+  extendTwMerge = extendTailwindMerge(extendTwMergeConfig || {})
+
   // Resolve the configuration object
   let config = resolveConfig(input)
 

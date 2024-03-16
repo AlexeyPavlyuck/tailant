@@ -1,6 +1,4 @@
-import { twMerge } from 'tailwind-merge'
-
-import { Processor } from '../../core'
+import { Processor, extendTwMerge } from '../../core'
 import processClassName from './process-class-name'
 
 /**
@@ -14,5 +12,6 @@ export function css(...args: unknown[]): string {
   // Process variant groups from class name
   // Process merging from class name
   // Return the final processed Tailwind class name
-  return twMerge(Processor.transformer(processClassName(args)))
+
+  return extendTwMerge?.(Processor.transformer(processClassName(args))) || ''
 }
