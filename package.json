@@ -1,7 +1,7 @@
 {
   "name": "tailant-extend",
   "description": "A tiny utility for construction conditional CSS classes, with tailwind group variants and merging of identical classes",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "license": "MIT",
   "author": {
     "name": "meluiz",
@@ -68,7 +68,7 @@
   "homepage": "https://github.com/meluiz/tailant#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/meluiz/tailant.git"
+    "url": "git+https://github.com/AlexeyPavlyuck/tailant"
   },
   "bugs": {
     "url": "https://github.com/meluiz/tailant/issues"
